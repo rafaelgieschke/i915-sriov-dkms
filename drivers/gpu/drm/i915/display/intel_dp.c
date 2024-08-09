@@ -79,6 +79,12 @@
 #include "intel_vdsc.h"
 #include "intel_vrr.h"
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,10,0)
+#define DSC_1_2_MAX_LINEBUF_DEPTH_BITS		16
+#define DSC_1_2_MAX_LINEBUF_DEPTH_VAL		0
+#define DSC_1_1_MAX_LINEBUF_DEPTH_BITS		13
+#endif
+
 /* DP DSC throughput values used for slice count calculations KPixels/s */
 #define DP_DSC_PEAK_PIXEL_RATE			2720000
 #define DP_DSC_MAX_ENC_THROUGHPUT_0		340000

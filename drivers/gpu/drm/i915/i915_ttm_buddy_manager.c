@@ -20,6 +20,10 @@
 
 #include "i915_gem.h"
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,10,0)
+#define drm_buddy_free_list(a, b) drm_buddy_free_list(a, b, 0)
+#endif
+
 struct i915_ttm_buddy_manager {
 	struct ttm_resource_manager manager;
 	struct drm_buddy mm;
